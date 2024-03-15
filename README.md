@@ -2,7 +2,7 @@
 ## Acknowledgement
 This code is part of Harriet Dawson's PhD work and you can [visit her GitHub repository where the primary version of this code resides](https://github.com/harrietldawson). The work was carried out under the supervision of [Cédric John](https://github.com/cedricmjohn) and all code from the research group can be found in the [John Lab GitHub repository](https://github.com/johnlab-research).
 
-<a href="www.john-lab.org">
+<a href="https://www.john-lab.org">
 <img src="https://www.john-lab.org/wp-content/uploads/2023/01/footer_small_logo.png" style="width:220px">
 </a>
 
