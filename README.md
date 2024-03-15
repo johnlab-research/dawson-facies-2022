@@ -1,4 +1,6 @@
 # Transfer Learning for Geological Images
+## Acknowledgement
+This code is part of Harriet Dawson's PhD work and you can [visit her GitHub repository](https://github.com/harrietldawson)]. The work was carried out under the supervision of [Cédric John (GitHub repo)](https://github.com/cedricmjohn) in the [John Lab (GitHub repo)](https://github.com/johnlab-research).
 
 ## Description
 This is the repository for the code in Dawson et al 2022. This code can be used to easily to perform transfer learning for geological images using any of the built-in TensforFlow-Keras image classification models used in the paper.
