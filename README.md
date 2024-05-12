@@ -1,36 +1,7 @@
 # Transfer Learning for Geological Images
-## Acknowledgement
-This code is part of Harriet Dawson's PhD work and you can [visit her GitHub repository](https://github.com/harrietldawson) where the primary version of this code resides. The work was carried out under the supervision of [Cédric John](https://github.com/cedricmjohn) and all code from the research group can be found in the [John Lab GitHub repository](https://github.com/johnlab-research).
-
-<a href="https://www.john-lab.org">
-<img src="https://www.john-lab.org/wp-content/uploads/2023/01/footer_small_logo.png" style="width:220px">
-</a>
 
 ## Description
 The code in this repository can be used to easily perform transfer learning using any of the built-in TensorFlow-Keras image classification models used in the Dawson et al., 2023 paper.
-
-## Built-In Models
-The models available here are:
-| Model  | Size  |  Top-1 Accuracy  |  Top-5 Accuracy  |  Parameters  |  Depth  |
-| -------------     | ------------- | -------------| ------------- | ------------- | ------------- |
-| VGG16    | 528 MB    |  0.713    | 0.901    | 138.4M    | 16    |
-| VGG19    | 549 MB    |  0.727    | 0.910    | 143.7M    | 19    |
-| ResNet50    |  98 MB    | 0.749    | 0.921    | 25.6M    |  107    |
-| ResNet101    |  171 MB    | 0.764    | 0.928    | 44.7M     | 209    |
-| ResNet152    |  232 MB    | 0.766    | 0.931    | 60.4M     | 311    |
-| InceptionV3    | 92 MB    | 0.779    | 0.937    | 23.9M    |  159    |
-| DenseNet121    | 33 MB    | 0.750    | 0.923    | 8.1M    | 121    |
-| DenseNet169    | 57 MB    | 0.762    | 0.932    | 14.3M    |  169    |
-| DenseNet201    | 80 MB    | 0.773    | 0.936    | 20.2M    |  201    |
-
-
-## Files and Directories
-
-
-- **comined-model.py:** Training and prediction mode
-
-- **utils.py:** Helper utility functions
-
 
 ## Installation
 This project has the following dependencies:
@@ -43,67 +14,48 @@ This project has the following dependencies:
 
 - Keras `sudo pip install tf.keras` 
 
+
+## Files and Directories
+
+- **combined-model**: Command line implementation for easy transfer learning of built-in TensorFlow-Keras models
+    - combined-model.py: *Training and prediction mode*
+
+    - utils.py: *Helper utility functions*
+ 
+- **predict**:
+    - classify_images.py: *Classify images with pre-trained CNNs*
+
+- **simplified**:
+    - simplified_carbonate_classification.py: *Simplified training example using TensorFlow Hub*
+
+- **train**
+    - carbonates_training_inceptionv3.py: *Uses a Keras ImageNet pre-trained InceptionV3 model to recognise seven Dunham classes using transfer learning and fine tuning*
+      
+    - carbonates_training_vgg19.py: *Uses a Keras ImageNet pre-trained VGG19 model to recognise seven Dunham classes using transfer learning and fine tuning*
+
+
 ## Usage
-To use this code, please ensure you have set up your dataset in folders following this structure:
+To use the training code, please ensure you have set up your dataset in folders following this structure:
 
     ├── "dataset_name"                   
-    |   ├── train
-    |   |   ├── class_1_images
-    |   |   ├── class_2_images
-    |   |   ├── class_X_images
+    |   ├── class_1
+    |   |   ├── class_1_images_1
+    |   |   ├── class_1_images_2
+    |   |   ├── class_1_images_X
     |   |   ├── .....
-    |   ├── val
-    |   |   ├── class_1_images
-    |   |   ├── class_2_images
-    |   |   ├── class_X_images
+    |   ├── class_2
+    |   |   ├── class_2_images_1
+    |   |   ├── class_2_images_2
+    |   |   ├── class_2_images_X
     |   |   ├── .....
-    |   ├── test
-    |   |   ├── class_1_images
-    |   |   ├── class_2_images
-    |   |   ├── class_X_images
+    |   ├── class_3
+    |   |   ├── class_3_images_1
+    |   |   ├── class_3_images_2
+    |   |   ├── class_3_images_X
     |   |   ├── .....
 
-Then you can simply run `combined-model.py`.  
 
-Check out the optional command line arguments:
-
-```
-usage: main.py [-h] [--num_epochs NUM_EPOCHS] [--mode MODE] [--image IMAGE]
-               [--continue_training CONTINUE_TRAINING] [--dataset DATASET]
-               [--resize_height RESIZE_HEIGHT] [--resize_width RESIZE_WIDTH]
-               [--batch_size BATCH_SIZE] [--dropout DROPOUT] [--h_flip H_FLIP]
-               [--v_flip V_FLIP] [--rotation ROTATION] [--model MODEL]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --num_epochs NUM_EPOCHS
-                        Number of epochs to train for, default=25.
-  --mode MODE           Select "train" or "predict" mode, default="train". Note that for
-                        prediction mode you have to specify an image to run
-                        the model on.
-  --image IMAGE         The image you want to predict on. Only valid in
-                        "predict" mode.
-  --continue_training CONTINUE_TRAINING
-                        Option to continue training from a checkpoint, default=False.
-  --dataset DATASET     Dataset you are using, default="carbonate_cores".
-  --resize_height RESIZE_HEIGHT
-                        Height of cropped input image to network, default=299.
-  --resize_width RESIZE_WIDTH
-                        Width of cropped input image to network, default=299. 
-  --batch_size BATCH_SIZE
-                        Number of images in each batch, default=32.
-  --dropout DROPOUT     Dropout ratio, default=0.2.
-  --h_flip H_FLIP       Option to randomly flip the image horizontally for
-                        data augmentation, default=False.
-  --v_flip V_FLIP       Option to randomly flip the image vertically for data
-                        augmentation, default=False.
-  --rotation ROTATION   Option to randomly rotate the image for data
-                        augmentation, default=0.0.
-  --model MODEL         Your pre-trained classification model of choice, default=InceptionV3.
-
-```
-
-## TensorFlor + Keras 2 backwards compatibility
+### NB: TensorFlor + Keras 2 backwards compatibility
 
 From TensorFlow 2.0 to TensorFlow 2.15 (included), doing `pip install tensorflow` will also install the corresponding version of Keras 2 – for instance, `pip install tensorflow==2.14.0` will install `keras==2.14.0`. That version of Keras is then available via both import keras and from tensorflow import keras (the `tf.keras` namespace).
 
@@ -118,12 +70,10 @@ Meanwhile, the legacy Keras 2 package is still being released regularly and is a
 * ResNet - [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) (CVPR 2015)
 * DenseNet - [Densely Connected Convolutional Networks](https://arxiv.org/abs/1608.06993) (CVPR 2017)
 
-**Note: each TF-Keras Application expects a specific kind of input preprocessing.**
 
-For VGG16, call `tf.keras.applications.vgg16.preprocess_input` on your inputs before passing them to the model. `vgg16.preprocess_input` will convert the input images from RGB to BGR, then will zero-center each color channel with respect to the ImageNet dataset, without scaling.
+## Acknowledgement
+This code is part of Harriet Dawson's PhD work and you can [visit her GitHub repository](https://github.com/harrietldawson) where the primary version of this code resides. The work was carried out under the supervision of [Cédric John](https://github.com/cedricmjohn) and all code from the research group can be found in the [John Lab GitHub repository](https://github.com/johnlab-research).
 
-For VGG19, call `tf.keras.applications.vgg19.preprocess_input` on your inputs before passing them to the model. `vgg19.preprocess_input` will convert the input images from RGB to BGR, then will zero-center each color channel with respect to the ImageNet dataset, without scaling.
-
-For InceptionV3, call `tf.keras.applications.inception_v3.preprocess_input` on your inputs before passing them to the model. `inception_v3.preprocess_input` will scale input pixels between -1 and 1.
-
-For ResNet, call `tf.keras.applications.resnet.preprocess_input` on your inputs before passing them to the model. `resnet.preprocess_input` will convert the input images from RGB to BGR, then will zero-center each color channel with respect to the ImageNet dataset, without scaling.
+<a href="https://www.john-lab.org">
+<img src="https://www.john-lab.org/wp-content/uploads/2023/01/footer_small_logo.png" style="width:220px">
+</a>
