@@ -14,6 +14,14 @@ This project has the following dependencies:
 
 - Keras `sudo pip install tf.keras` 
 
+### NB: TensorFlor + Keras 2 backwards compatibility
+
+From TensorFlow 2.0 to TensorFlow 2.15 (included), doing `pip install tensorflow` will also install the corresponding version of Keras 2 – for instance, `pip install tensorflow==2.14.0` will install `keras==2.14.0`. That version of Keras is then available via both import keras and from tensorflow import keras (the `tf.keras` namespace).
+
+Starting with TensorFlow 2.16, doing `pip install tensorflow` will install Keras 3. When you have TensorFlow >= 2.16 and Keras 3, then by default `from tensorflow import keras` (`tf.keras`) will be Keras 3.
+
+Meanwhile, the legacy Keras 2 package is still being released regularly and is available on PyPI as `tf_keras` (or equivalently `tf-keras` – note that `-` and `_` are equivalent in PyPI package names). To use it, you can install it via `pip install tf_keras` then import it via `import tf_keras as keras`.
+
 
 ## Files and Directories
 
@@ -54,14 +62,6 @@ To use the training code, please ensure you have set up your dataset in folders 
     |   |   ├── class_3_images_X
     |   |   ├── .....
 
-
-### NB: TensorFlor + Keras 2 backwards compatibility
-
-From TensorFlow 2.0 to TensorFlow 2.15 (included), doing `pip install tensorflow` will also install the corresponding version of Keras 2 – for instance, `pip install tensorflow==2.14.0` will install `keras==2.14.0`. That version of Keras is then available via both import keras and from tensorflow import keras (the `tf.keras` namespace).
-
-Starting with TensorFlow 2.16, doing `pip install tensorflow` will install Keras 3. When you have TensorFlow >= 2.16 and Keras 3, then by default `from tensorflow import keras` (`tf.keras`) will be Keras 3.
-
-Meanwhile, the legacy Keras 2 package is still being released regularly and is available on PyPI as `tf_keras` (or equivalently `tf-keras` – note that `-` and `_` are equivalent in PyPI package names). To use it, you can install it via `pip install tf_keras` then import it via `import tf_keras as keras`.
 
 ## References
 
