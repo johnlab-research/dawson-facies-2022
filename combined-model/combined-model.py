@@ -5,35 +5,32 @@ from __future__ import print_function
 # Set up
 
 # Import networks
-from tf.keras.preprocessing import image
-from tf.keras.applications.densenet121 import DenseNet121
-from tf.keras.applications.densenet169 import DenseNet169
-from tf.keras.applications.densenet201 import DenseNet201
-from tf.keras.applications.inception_v3 import InceptionV3
-from tf.keras.applications.resnet50 import ResNet50
-from tf.keras.applications.resnet101 import ResNet101
-from tf.keras.applications.resnet152 import ResNet152
-from tf.keras.applications.vgg16 import VGG16
-from tf.keras.applications.vgg19 import VGG19
-from tf.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.densenet import DenseNet121, DenseNet169, DenseNet201
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.applications.resnet import ResNet101, ResNet152
+from tensorflow.keras.applications.vgg16 import VGG16
+from tensorflow.keras.applications.vgg19 import VGG19
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Import layers
-from tf.keras.layers import Dense
-from tf.keras.layers import Activation 
-from tf.keras.layers import Flatten
-from tf.keras.layers import Dropout
-from tf.keras import backend as K
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras import backend as K
 
-# Import other 
-from tf.keras import optimizers
-from tf.keras import losses
-from tf.keras.optimizers import SGD
-from tf.keras.optimizers import Adam
-from tf.keras.models import Sequential
-from tf.keras.models import Model
-from tf.keras.models import load_model
-from tf.keras.callbacks import ModelCheckpoint
-from tf.keras.callbacks import LearningRateScheduler
+# Import other
+from tensorflow.keras import optimizers
+from tensorflow.keras import losses
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Model
+from tensorflow.keras.models import load_model
+from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.callbacks import LearningRateScheduler
 
 # Import utils
 import matplotlib.pyplot as plt
@@ -95,39 +92,39 @@ base_model = None
 
 # Model selection
 if args.model == "VGG16":
-    from tf.keras.applications.vgg16 import preprocess_input
+    from tensorflow.keras.applications.vgg16 import preprocess_input
     preprocessing_function = preprocess_input
     base_model = VGG16(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "VGG19":
-    from tf.keras.applications.vgg19 import preprocess_input
+    from tensorflow.keras.applications.vgg19 import preprocess_input
     preprocessing_function = preprocess_input
     base_model = VGG19(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "ResNet50":
-    from tf.keras.applications.resnet50 import preprocess_input
+    from tensorflow.keras.applications.resnet50 import preprocess_input
     preprocessing_function = preprocess_input
     base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "ResNet101":
-    from tf.keras.applications.resnet101 import preprocess_input
+    from tensorflow.keras.applications.resnet import preprocess_input
     preprocessing_function = preprocess_input
     base_model = ResNet101(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "ResNet152":
-    from tf.keras.applications.resnet152 import preprocess_input
+    from tensorflow.keras.applications.resnet import preprocess_input
     preprocessing_function = preprocess_input
-    base_model = ResNet152(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))   
+    base_model = ResNet152(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "InceptionV3":
-    from tf.keras.applications.inception_v3 import preprocess_input
+    from tensorflow.keras.applications.inception_v3 import preprocess_input
     preprocessing_function = preprocess_input
     base_model = InceptionV3(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "DenseNet121":
-    from tf.keras.applications.densenet import preprocess_input
+    from tensorflow.keras.applications.densenet import preprocess_input
     preprocessing_function = preprocess_input
     base_model = DenseNet121(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "DenseNet169":
-    from tf.keras.applications.densenet import preprocess_input
+    from tensorflow.keras.applications.densenet import preprocess_input
     preprocessing_function = preprocess_input
     base_model = DenseNet169(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 elif args.model == "DenseNet201":
-    from tf.keras.applications.densenet import preprocess_input
+    from tensorflow.keras.applications.densenet import preprocess_input
     preprocessing_function = preprocess_input
     base_model = DenseNet201(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
 else:

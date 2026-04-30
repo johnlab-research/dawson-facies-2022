@@ -1,0 +1,10 @@
+tensorflow>=2.16          # TF 2.16+ ships Keras 3; tf-keras provides the legacy Keras 2 API
+tf-keras                  # Legacy Keras 2 under TF 2.16+; import as `import tf_keras as keras`
+tensorflow-hub            # Required: the saved weights embed a TFHub KerasLayer
+numpy
+Pillow
+opencv-python
+matplotlib
+scipy
+pandas
+setuptools<70             # tensorflow-hub imports pkg_resources, removed in setuptools>=70

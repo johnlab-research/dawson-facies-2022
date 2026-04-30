@@ -7,10 +7,10 @@ import tensorflow as tf
 import numpy as np
 import argparse
 from pathlib import Path
-from tf.keras.models import load_model
-from tf.keras.applications import imagenet_utils
-from tf.keras.applications.inception_v3 import preprocess_input
-from tf.keras.preprocessing.image import img_to_array, load_img
+from tensorflow.keras.models import load_model
+from tensorflow.keras.applications import imagenet_utils
+from tensorflow.keras.applications.inception_v3 import preprocess_input
+from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import matplotlib.pyplot as plt
 
 # Construct the argument parse and parse the arguments

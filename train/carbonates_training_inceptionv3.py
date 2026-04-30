@@ -13,11 +13,11 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
-from tf.keras.applications.inception_v3 import InceptionV3, preprocess_input
-from tf.keras.models import Model
-from tf.keras.layers import Dense, GlobalAveragePooling2D
-from tf.keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
-from tf.keras.optimizers import SGD
+from tensorflow.keras.applications.inception_v3 import InceptionV3, preprocess_input
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+from tensorflow.keras.optimizers import SGD
 
 from scipy.interpolate import spline
 import pandas as pd

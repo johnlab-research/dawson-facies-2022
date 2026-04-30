@@ -1,22 +1,22 @@
 # Setup
 
 # Import layers
-from tf.keras.layers import Dense
-from tf.keras.layers import Activation 
-from tf.keras.layers import Flatten
-from tf.keras.layers import Dropout
-from tf.keras import backend as K
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras import backend as K
 
-# Import other 
-from tf.keras import optimizers
-from tf.keras import losses
-from tf.keras.optimizers import SGD
-from tf.keras.optimizers import Adam
-from tf.keras.models import Sequential
-from tf.keras.models import Model
-from tf.keras.models import load_model
-from tf.keras.callbacks import ModelCheckpoint
-from tf.keras.callbacks import LearningRateScheduler
+# Import other
+from tensorflow.keras import optimizers
+from tensorflow.keras import losses
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Model
+from tensorflow.keras.models import load_model
+from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.callbacks import LearningRateScheduler
 
 # Import utils
 import matplotlib.pyplot as plt
